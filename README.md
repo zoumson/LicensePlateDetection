@@ -196,7 +196,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Adama Zouma - <!-- [@your_twitter](https://twitter.com/your_username) -->- stargue49@gmail.com
+Adama Zouma - <!-- [@your_twitter](https://twitter.com/your_username) -->- stargue49@gmail.com
 
 Project Link: [https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv](https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv)
 
