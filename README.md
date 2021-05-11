@@ -128,7 +128,7 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Install first opencv4 cpp libraries at [https://opencv.org/](https://opencv.org/)
+1. Install first `opencv4` cpp libraries at [https://opencv.org/](https://opencv.org/)
 2. Clone the repo
    ```sh
    git clone https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv.git
@@ -150,7 +150,8 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 Command line arguments
-See opencv CommandLineParser for more detail
+<br>
+See opencv `CommandLineParser` for more detail.
 
 ```
  "{i image |<none>           | input image path}"         
@@ -195,7 +196,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Your Adama Zouma - <!-- [@your_twitter](https://twitter.com/your_username) -->- stargue49@gmail.com
 
 Project Link: [https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv](https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv)
 
