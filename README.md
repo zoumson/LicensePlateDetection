@@ -83,38 +83,45 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+LPR (License Plate Recognition), also known as ANPR (Automatic Number-Plate Recognition) is an image-processing technology used to identify vehicles by their license plates.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+The system uses illumination and an infrared camera to take the image of the front or rear of the vehicle, then an image-processing software analyzes the images and extracts the license plate information.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
+Here's why LDR is valuable:
+
+* First of all, safety: the license plate serves as a virtual ticket, and grants free-flow access, preventing stolen cars or ticket swapping. Since ticket and license plate have to match at entry and exit, it is almost impossible to pursue fraudulent behaviors. With LPR you can also easily manage black lists and be in control of all the events and movements at entrance and exit.
+
+* LPR is highly reliable: in case of lost tickets, it is easy to determine the actual entry time from the license plate number.
+
+* In addition, LPR also allows multiple integrations and customizations, especially for contract parking where the recurrent user can smoothly access and egress the car park without any titles other than the vehicle license plate.
+
+* With LPR, it is also possible to enter with a pre-paid ticket, or use cashless solutions. Another benefit offered by LPR at entries/exits is the possibility to book a parking space in advance, to ensure the driver a hassle-free experience.
+
+* Last but not least, LPR can be retrofitted and added to existing solutions.
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+
+* [opencv](https://opencv.org/)
+* [cmake](https://cmake.org/)
+* [gnu](https://www.gnu.org/)
 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This is an sample code of how you may detect a license plate on a image.
+To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* cmake
   ```sh
-  npm install npm@latest -g
+  sudo apt-get install cmake
   ```
 
 ### Installation
@@ -200,6 +207,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+<!-- 
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
@@ -213,3 +221,4 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
+-->
