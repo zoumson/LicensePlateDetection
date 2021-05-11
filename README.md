@@ -123,6 +123,7 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   sudo apt-get install cmake
   ```
+ * CPP standard: `CMAKE_CXX_STANDARD 17`
 
 ### Installation
 
@@ -139,9 +140,9 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    cmake ..
    ```
-5. Then run the makefile to generate the executable `plate`
+5. Finally run the makefile to generate the executable `plate`
    ```sh
-   cmake ..
+   make
    ```
 
 
