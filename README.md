@@ -126,35 +126,47 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Install first opencv4 cpp libraries at [https://opencv.org/](https://opencv.org/)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv.git
    ```
-3. Install NPM packages
+3. Go to build
    ```sh
-   npm install
+   cd ./buil
    ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
+4. Then run the cmake file to generate the makefile
+   ```sh
+   cmake ..
    ```
-
+5. Then run the makefile to generate the executable `plate`
+   ```sh
+   cmake ..
+   ```
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+Command line arguments
+See opencv CommandLineParser for more detail
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+```
+ "{i image |<none>           | input image path}"         
+        "{c classifier |../ressource/xml/classifications.xml   | input classifier path}"         
+        "{t train |../ressource/xml/images.xml                 | input trained images path}"         
+        "{p path |../result/image/                 | save image detected with detected plate path}"                 
+        "{p name |image                 | save image detected with detected plate name}"                 
+        "{n ext |png                | save image detected with detected plate extension}"                 
+        "{s show |false                 | show detection steps}"         
+        "{v save |false                 | save image with detected plate}"         
+        "{help h usage ?    |      | show help message}";      
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
+```
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+All the headers files are well docummented, read through the comments
 
 
 
@@ -183,11 +195,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv](https://github.com/zoumson/zoumson-Parking_Lot_License_Plate_Detection_Opencv)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
+<!-- 
 ## Acknowledgements
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Img Shields](https://shields.io)
@@ -200,7 +213,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 * [Sticky Kit](http://leafo.net/sticky-kit)
 * [JVectorMap](http://jvectormap.com)
 * [Font Awesome](https://fontawesome.com)
-
+-->
 
 
 
