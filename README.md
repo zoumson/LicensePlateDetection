@@ -135,7 +135,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 3. Go to build
    ```sh
-   cd ./buil
+   cd ./build
    ```
 4. Then run the cmake file to generate the makefile
    ```sh
