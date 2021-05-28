@@ -1,6 +1,0 @@
-#define __TBB_VERSION_STRINGS(N) \
-#N": BUILD_PACKAGE	OpenCV 4.5.2-dev" ENDL \
-#N": BUILD_HOST 	Linux 5.4.72-microsoft-standard-WSL2 x86_64" ENDL \
-#N": BUILD_TARGET	Linux 5.4.72-microsoft-standard-WSL2 x86_64" ENDL \
-#N": BUILD_COMPILER	/usr/bin/c++ (ver 10.2.1)" ENDL \
-#N": BUILD_COMMAND	use cv::getBuildInformation() for details" ENDL

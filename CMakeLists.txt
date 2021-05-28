@@ -18,7 +18,7 @@ include_directories(include)
 file(GLOB SOURCES "src/*.cpp")
 
 #Add opencv cmake .config path
-set (OpenCV_DIR ressource/cmake/release)
+set (OpenCV_DIR opt/opencv/release)
 
 #Find opencv libs
 find_package(OpenCV REQUIRED)
