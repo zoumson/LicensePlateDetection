@@ -136,12 +136,15 @@ This is an example of how to list things you need to use the software and how to
 3. Go to build
    ```sh
    cd ./build
+4. Cliear the folder `build`
+   ```sh
+   rm -r 
    ```
-4. Then run the cmake file to generate the makefile
+5. Then run the cmake file to generate the makefile
    ```sh
    cmake ..
    ```
-5. Finally run the makefile to generate the executable `plate`
+6. Finally run the makefile to generate the executable `plate`
    ```sh
    make
    ```
