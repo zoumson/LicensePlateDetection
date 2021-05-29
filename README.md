@@ -102,8 +102,10 @@ Here's why LDR is valuable:
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
+<!--Built with -->
 ### Built With
 
+<br>
 
 * [opencv](https://opencv.org/)
 * [cmake](https://cmake.org/)
