@@ -104,7 +104,6 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 <!--Built with -->
 ### Built With
-
 <br>
 
 * [opencv](https://opencv.org/)
