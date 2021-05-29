@@ -149,22 +149,43 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-Command line arguments
+1. Command line arguments
 <br>
 See opencv `CommandLineParser` for more detail.
 
 ```
- "{i image |<none>           | input image path}"         
-        "{c classifier |../ressource/xml/classifications.xml   | input classifier path}"         
-        "{t train |../ressource/xml/images.xml                 | input trained images path}"         
-        "{p path |../result/image/                 | save image detected with detected plate path}"                 
-        "{p name |image                 | save image detected with detected plate name}"                 
-        "{n ext |png                | save image detected with detected plate extension}"                 
-        "{s show |false                 | show detection steps}"         
-        "{v save |false                 | save image with detected plate}"         
-        "{help h usage ?    |      | show help message}";      
+Car license plate detection
+Usage: plate [params] 
+
+	-?, -h, --help, --usage (value:true)
+		show help message
+	-c, --classifier (value:../ressource/xml/classifications.xml)
+		input classifier path
+	--ext, -n (value:png)
+		save image detected with detected plate extension
+	-i, --image (value:<none>)
+		input image path
+	--name, -p (value:image)
+		save image detected with detected plate name
+	-p, --path (value:../result/image/)
+		save image detected with detected plate path
+	-s, --show (value:false)
+		show detection steps
+	--save, -v (value:false)
+		save image with detected plate
+	-t, --train (value:../ressource/xml/images.xml)
+		input trained images path
 
 ```
+2. Run with an image in `ressource/image`
+```
+./plate -i=../ressource/image/image6.png -v=true
+```
+
+* Before detection
+ ![image6](https://user-images.githubusercontent.com/38358621/120063777-7cba9a80-c09b-11eb-8e14-82b2323ecd44.png)
+* After detection: image saved as `image_29_05_2021_16_25_27`, current date and time is appended
+![image_29_05_2021_16_25_27](https://user-images.githubusercontent.com/38358621/120063750-4bda6580-c09b-11eb-8b9b-394f082a73a5.png)
 
 <!-- ROADMAP -->
 ## Roadmap
