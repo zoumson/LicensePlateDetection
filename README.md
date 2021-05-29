@@ -1,55 +1,5 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
--->
-
-
-<!-- PROJECT LOGO -->
-<!-- 
-<br />
-<p align="center">
-
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-<p align="center">
-  <h3 align="center">Best-README-Template</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</p>
--->
-
+## Detection of a car license plate in a parking lot
+![image](https://user-images.githubusercontent.com/38358621/120076768-da6dd780-c0d9-11eb-8723-8286ad1d293e.png)
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -133,7 +83,7 @@ This is an example of how to list things you need to use the software and how to
 1. Install first `opencv4` cpp libraries at [https://opencv.org/](https://opencv.org/)
 2. Clone the repo
    ```sh
-   git clone https://github.com/zoumson/ParkingLotLicensePlateDetectionOpencv.git
+   git clone https://github.com/zoumson/LicensePlateDetection.git
    ```
 3. Go to build
    ```sh
@@ -235,7 +185,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Adama Zouma - <!-- [@your_twitter](https://twitter.com/your_username) -->- stargue49@gmail.com
 
-Project Link: [https://github.com/zoumson/ParkingLotLicensePlateDetectionOpencv](https://github.com/zoumson/ParkingLotLicensePlateDetectionOpencv)
+Project Link: [https://github.com/zoumson/LicensePlateDetection](https://github.com/zoumson/LicensePlateDetection.git)
 
 
 
