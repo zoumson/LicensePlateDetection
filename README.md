@@ -151,7 +151,6 @@ This is an example of how to list things you need to use the software and how to
 ### Usage
 1. Command line arguments
 <br>
-
 ```
 Car license plate detection
 Usage: plate [params] 
@@ -176,31 +175,27 @@ Usage: plate [params]
 		input trained images path
 
 ```
-
-
+<br>
 2. Run with an image in `ressource/image`
 ```
 ./plate -i=../ressource/image/image6.png -v=true
 ```
-
-
-
+<br>
 ## Before detection
 
  ![image6](https://user-images.githubusercontent.com/38358621/120063777-7cba9a80-c09b-11eb-8e14-82b2323ecd44.png)
- 
- 
+ <br>
 ## After detection: image saved as `image_29_05_2021_16_25_27`
-*current date and time is appended
 
 ![image_29_05_2021_16_25_27](https://user-images.githubusercontent.com/38358621/120063750-4bda6580-c09b-11eb-8b9b-394f082a73a5.png)
+
+<br>
+## License plate number `NYSJ`
 
 <!-- ROADMAP -->
 ## Roadmap
 
 All the headers files are well docummented, read through the comments
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
