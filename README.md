@@ -191,7 +191,6 @@ Usage: plate [params]
  
  
 ## After detection: image saved as `image_29_05_2021_16_25_27`
-<br>
 *current date and time is appended
 
 ![image_29_05_2021_16_25_27](https://user-images.githubusercontent.com/38358621/120063750-4bda6580-c09b-11eb-8b9b-394f082a73a5.png)
