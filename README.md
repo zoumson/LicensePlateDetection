@@ -104,13 +104,14 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 <!--Built with -->
 ### Built With
+
 <br>
 
 * [opencv](https://opencv.org/)
 * [cmake](https://cmake.org/)
 * [gnu](https://www.gnu.org/)
 
-
+<br>
 
 <!-- GETTING STARTED -->
 ## Getting Started
