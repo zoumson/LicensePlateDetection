@@ -1,4 +1,4 @@
-## Detection of car license plate in a parking lot
+## Detection of a car license plate in a parking lot
 ![image](https://user-images.githubusercontent.com/38358621/120076768-da6dd780-c0d9-11eb-8723-8286ad1d293e.png)
 
 <!-- TABLE OF CONTENTS -->
