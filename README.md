@@ -185,12 +185,14 @@ Usage: plate [params]
 
 
 
-## * Before detection
+## Before detection
 
  ![image6](https://user-images.githubusercontent.com/38358621/120063777-7cba9a80-c09b-11eb-8e14-82b2323ecd44.png)
  
  
-## * After detection: image saved as `image_29_05_2021_16_25_27`, current date and time is appended
+## After detection: image saved as `image_29_05_2021_16_25_27`
+<br>
+*current date and time is appended
 
 ![image_29_05_2021_16_25_27](https://user-images.githubusercontent.com/38358621/120063750-4bda6580-c09b-11eb-8b9b-394f082a73a5.png)
 
