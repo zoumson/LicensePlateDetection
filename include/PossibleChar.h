@@ -70,7 +70,7 @@ public:
     * Member Function Declaration
     * ============================================================================
     */
-    
+   
     /**
      * \brief Custom constructor.
      *
