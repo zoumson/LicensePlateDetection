@@ -1,3 +1,11 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+
 [![Github][github-shield]][github.com/zoumson?tab=repositories]
 [![LinkedIn][linkedin-shield]][linkedin.com/in/adama-zouma-553bba13a]
 [![Stack Overflow][stackoverflow-shield]][stackoverflow.com/users/11175375/adam]
