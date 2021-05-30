@@ -225,7 +225,7 @@ Project Link: [https://github.com/zoumson/LicensePlateDetection](https://github.
 [issues-url]: https://github.com/othneildrew/Best-README-Template/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: linkedin.com/in/adama-zouma-553bba13a
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: linkedin.com/in/adama-zouma-553bba13a
 [product-screenshot]: images/screenshot.png
 
