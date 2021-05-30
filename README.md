@@ -88,9 +88,9 @@ This is an example of how to list things you need to use the software and how to
 3. Go to build
    ```sh
    cd ./build
-4. Cliear the folder `build`
+4. Clear the folder `build`
    ```sh
-   rm -r 
+   rm -r *
    ```
 5. Then run the cmake file to generate the makefile
    ```sh
