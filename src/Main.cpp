@@ -2,6 +2,9 @@
 
 int main(int argc, char const *argv[]) 
 {
+    
+
+         
    cv::String keys =
         "{i image |<none>           | input image path}"         
         "{c classifier |../ressource/xml/classifications.xml   | input classifier path}"         
