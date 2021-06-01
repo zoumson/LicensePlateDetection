@@ -76,19 +76,9 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 * [gnu](https://www.gnu.org/)
 
 <br>
-### File Structure
-### Folders
 
-```
-├── build
-├── CMakeLists.txt
-├── include
-├── lib
-├── README.md
-├── ressource
-├── result
-└── src
-```
+## Folders
+
 * [build/](build/): Running `cmake` and `make`.
 * [include/](include/): c++ header files.
 * [resource/](resource/): xml and input images.
