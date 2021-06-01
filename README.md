@@ -26,10 +26,10 @@
       </ul>
     </li>
     <li>
-      <a href="#File Structure">File Structure</a>
+      <a href="#file-structure">Files Structure</a>
       <ul>
-        <li><a href="#Folder">Folder</a></li>
-        <li><a href="#Entire File">Entire File</a></li>
+        <li><a href="#folders">Folders</a></li>
+        <li><a href="#entire-files-structure">Entire Files Structure</a></li>
       </ul>
     </li>
     <li>
@@ -83,7 +83,9 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 * [gnu](https://www.gnu.org/)
 
 <br>
+
 ## File Structure
+
 ### Folders
 
 * [build/](build/): Running `cmake` and `make`.
@@ -93,7 +95,7 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 * [src/](src/): c++ definitions.
 
 
-### Entire File Structure 
+### Entire Files Structure 
 
 
 ```
