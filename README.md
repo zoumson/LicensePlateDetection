@@ -76,6 +76,87 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 * [gnu](https://www.gnu.org/)
 
 <br>
+### File Structure
+### Folders
+
+```
+├── build
+├── CMakeLists.txt
+├── include
+├── lib
+├── README.md
+├── ressource
+├── result
+└── src
+```
+* [build/](build/): Running `cmake` and `make`.
+* [include/](include/): c++ header files.
+* [resource/](resource/): xml and input images.
+* [result/](result/): Storing image with detected plate.
+* [src/](src/): c++ definitions.
+
+
+## Entire file structure 
+
+
+```
+.
+├── build
+├── CMakeLists.txt
+├── include
+│   ├── ConstantsDetectChars.h
+│   ├── ConstantsDetectPlates.h
+│   ├── ConstantsIdentifyPlate.h
+│   ├── ConstantsPreprocess.h
+│   ├── DetectChars.h
+│   ├── DetectPlates.h
+│   ├── IdentifyPlate.h
+│   ├── PossibleChar.h
+│   ├── PossiblePlate.h
+│   ├── Preprocess.h
+│   └── ShowLicensePlateArgs.h
+├── lib
+├── README.md
+├── ressource
+│   ├── image
+│   │   ├── image10.png
+│   │   ├── image11.png
+│   │   ├── image12.png
+│   │   ├── image13.png
+│   │   ├── image14.png
+│   │   ├── image15.png
+│   │   ├── image16.png
+│   │   ├── image1.png
+│   │   ├── image2.png
+│   │   ├── image3.png
+│   │   ├── image4.png
+│   │   ├── image5.png
+│   │   ├── image6.png
+│   │   ├── image7.png
+│   │   ├── image8.png
+│   │   ├── image9.png
+│   │   ├── imgOriginalScene.png
+│   │   ├── test2.png
+│   │   └── test.png
+│   └── xml
+│       ├── classifications.xml
+│       └── images.xml
+├── result
+│   └── image
+│       └── image_29_05_2021_16_25_27.png
+└── src
+    ├── DetectChars.cpp
+    ├── DetectPlates.cpp
+    ├── IdentifyPlate.cpp
+    ├── Main.cpp
+    ├── PossibleChar.cpp
+    ├── PossiblePlate.cpp
+    └── Preprocess.cpp
+
+9 directories, 42 files
+
+```
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
