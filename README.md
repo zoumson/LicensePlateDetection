@@ -26,6 +26,13 @@
       </ul>
     </li>
     <li>
+      <a href="#File Structure">File Structure</a>
+      <ul>
+        <li><a href="#Folder">Folder</a></li>
+        <li><a href="#Entire File">Entire File</a></li>
+      </ul>
+    </li>
+    <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
@@ -76,8 +83,8 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 * [gnu](https://www.gnu.org/)
 
 <br>
-
-## Folders
+## File Structure
+### Folders
 
 * [build/](build/): Running `cmake` and `make`.
 * [include/](include/): c++ header files.
@@ -86,7 +93,7 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 * [src/](src/): c++ definitions.
 
 
-## Entire file structure 
+### Entire File Structure 
 
 
 ```
