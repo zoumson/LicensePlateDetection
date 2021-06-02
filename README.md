@@ -88,7 +88,7 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 ### Folders
 
-* [build/](build/): Running `cmake` and `make`.
+* [build/](build/): Running `cmake ..` and `make`.
 * [include/](include/): c++ header files.
 * [resource/](resource/): xml and input images.
 * [result/](result/): Storing image with detected plate.
