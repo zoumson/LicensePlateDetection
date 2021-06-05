@@ -191,7 +191,7 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    mkdir build && mkdir lib && mkdir bin
    ```
-5. Generate the library `lib` and move it to `lib` and the exectutable `demo` and move it to `bin`
+5. Generate the library `plate` and move it to `lib` and the exectutable `demo` and move it to `bin`
    ```sh
    cd build && cmake .. && make && cd
    ```
