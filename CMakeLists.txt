@@ -1,50 +1,40 @@
 cmake_minimum_required(VERSION 2.8.9)
 
-#set(CMAKE_CXX_STANDARD 17)
-#set(CMAKE_BUILD_TYPE Release)
-
-#Set the executable name
-#set(EXE main)
-#set(LIB plate)
-#set(PROJECT_LINK_LIB libplate.so)
+#set the project name
 project (plate)
 
-#Bring the custom libraries
-#link_directories( lib)
-
+#Set the compiler
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Release)
 set( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set( LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
-#Bring the headers
-include_directories(${PROJECT_SOURCE_DIR}/include)
+#Set ccache (for speeding up)
+find_program(CCACHE_FOUND ccache) 
+if(CCACHE_FOUND) 
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache) 
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache) 
+endif(CCACHE_FOUND) 
+set (CMAKE_CXX_FLAGS "-DPCL_ONLY_CORE_POINT_TYPES=ON -DNO_EXPLICIT_INSTANTIATIONS") 
 
-#Bring the sources
-#file(GLOB SOURCES_LIB "src/lib/*.cpp")
-#file(GLOB SOURCES_MAIN "src/main/*.cpp")
-
+############### Dependencies #######################
 
 #Add opencv cmake .config path
 set (OpenCV_DIR opt/opencv/release)
 
 #Find opencv libs
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 4.5.1 REQUIRED)
 
+############### My Files #########################
+
+#Bring the headers
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+#Bring the source files
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/plate)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/demo)
 
-#Generate library
-#add_library(${LIB} SHARED ${SOURCES_LIB})
 
-#Add other libraries used to build the main library
-#target_link_libraries(${LIB} PRIVATE ${OpenCV_LIBS})
 
-#Set an installation path, type "sudo make install" to apply
-#install(TARGETS ${LIB} DESTINATION /user/lib)
 
-#Build the executable
-#add_executable(${EXE} ${SOURCES_MAIN})
-
-#Link the libraries 
-#target_link_libraries(${EXE} ${PROJECT_LINK_LIB} ${OpenCV_LIBS})
 
