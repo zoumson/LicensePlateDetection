@@ -88,7 +88,6 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 ### Folders
 
-* [build/](build/): Running `cmake ..` and `make`.
 * [include/](include/): c++ header files.
 * [resource/](resource/): xml and input images.
 * [result/](result/): Storing image with detected plate.
@@ -100,7 +99,6 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 ```
 .
-├── build
 ├── CMakeLists.txt
 ├── include
 │   ├── ConstantsDetectChars.h
@@ -114,7 +112,6 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 │   ├── PossiblePlate.h
 │   ├── Preprocess.h
 │   └── ShowLicensePlateArgs.h
-├── lib
 ├── README.md
 ├── ressource
 │   ├── image
@@ -141,18 +138,20 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 │       ├── classifications.xml
 │       └── images.xml
 ├── result
-│   └── image
-│       └── image_29_05_2021_16_25_27.png
 └── src
-    ├── DetectChars.cpp
-    ├── DetectPlates.cpp
-    ├── IdentifyPlate.cpp
-    ├── Main.cpp
-    ├── PossibleChar.cpp
-    ├── PossiblePlate.cpp
-    └── Preprocess.cpp
+    ├── demo
+    │   ├── CMakeLists.txt
+    │   └── Demo.cpp
+    └── plate
+        ├── CMakeLists.txt
+        ├── DetectChars.cpp
+        ├── DetectPlates.cpp
+        ├── IdentifyPlate.cpp
+        ├── PossibleChar.cpp
+        ├── PossiblePlate.cpp
+        └── Preprocess.cpp
 
-9 directories, 42 files
+8 directories, 43 files
 
 ```
 
@@ -184,23 +183,18 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/zoumson/LicensePlateDetection.git
    ```
-3. Go to build
+3. Go to the project directory source
    ```sh
-   cd ./build
-4. Clear the folder `build`
-   ```sh
-   rm -r *
+   cd LicensePlateDetection
    ```
-5. Then run the cmake file to generate the makefile
+4. Create empty directories `build`, `lib` and `bin`
    ```sh
-   cmake ..
+   mkdir build && mkdir lib && mkdir bin
    ```
-6. Finally run the makefile to generate the executable `plate`
+5. Generate the library `plate` and move it to `lib` and the exectutable `demo` and move it to `bin`
    ```sh
-   make
+   cd build && cmake .. && make && cd
    ```
-
-
 <!-- USAGE EXAMPLES -->
 ### Usage
 1. Command line arguments
@@ -233,9 +227,9 @@ Usage: plate [params]
 
 <br>
 
-2. Run with an image in `ressource/image`
+2. Run with an image in `./ressource/image`
 ```
-./plate -i=../ressource/image/image6.png -v=true
+./bin/demo -i=./ressource/image/image6.png -v=true
 ```
 
 <br>
