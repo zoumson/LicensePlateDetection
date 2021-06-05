@@ -195,6 +195,10 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    cd build && cmake .. && make && cd
    ```
+6. Install the library `plate` to `/usr/lib` 
+   ```sh
+   cd build && sudo make install && cd
+   ```   
 <!-- USAGE EXAMPLES -->
 ### Usage
 1. Command line arguments
