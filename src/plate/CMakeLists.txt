@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.9)
+#cmake_minimum_required(VERSION 2.8.9)
 
 #set(CMAKE_CXX_STANDARD 17)
 #set(CMAKE_BUILD_TYPE Release)
@@ -7,40 +7,34 @@ cmake_minimum_required(VERSION 2.8.9)
 #set(EXE main)
 #set(LIB plate)
 #set(PROJECT_LINK_LIB libplate.so)
-project (plate)
+#project (${EXE})
 
 #Bring the custom libraries
 #link_directories( lib)
 
-set(CMAKE_CXX_STANDARD 17)
-set( EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-set( LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 #Bring the headers
-include_directories(${PROJECT_SOURCE_DIR}/include)
+#include_directories(include)
 
 #Bring the sources
-#file(GLOB SOURCES_LIB "src/lib/*.cpp")
+file(GLOB SOURCES_PLATE ${PROJECT_SOURCE_DIR}/src/plate/*.cpp)
 #file(GLOB SOURCES_MAIN "src/main/*.cpp")
 
 
 #Add opencv cmake .config path
-set (OpenCV_DIR opt/opencv/release)
+#set (OpenCV_DIR opt/opencv/release)
 
 #Find opencv libs
-find_package(OpenCV REQUIRED)
-
-add_subdirectory(${PROJECT_SOURCE_DIR}/src/plate)
-add_subdirectory(${PROJECT_SOURCE_DIR}/src/demo)
+#find_package(OpenCV REQUIRED)
 
 #Generate library
-#add_library(${LIB} SHARED ${SOURCES_LIB})
+add_library(plate SHARED ${SOURCES_PLATE})
 
 #Add other libraries used to build the main library
-#target_link_libraries(${LIB} PRIVATE ${OpenCV_LIBS})
+target_link_libraries(plate PRIVATE ${OpenCV_LIBS})
 
 #Set an installation path, type "sudo make install" to apply
-#install(TARGETS ${LIB} DESTINATION /user/lib)
+install(TARGETS plate DESTINATION /user/lib)
 
 #Build the executable
 #add_executable(${EXE} ${SOURCES_MAIN})
