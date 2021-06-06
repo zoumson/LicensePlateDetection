@@ -39,6 +39,7 @@
 #include<opencv2/core/core.hpp>
 #include<opencv2/imgproc/imgproc.hpp>
 
+namespace za {
 /**
  * Implementation of a Possible character for retrieving character
  *
@@ -130,6 +131,6 @@ public:
     bool operator != (const PossibleChar& otherPossibleChar) const;
 
 };
-
+}
 #endif  // POSSIBLE_CHAR_H
 

@@ -1,5 +1,5 @@
 #Bring the sources
-file(GLOB SOURCES_PLATE ${PROJECT_SOURCE_DIR}/src/plate/*.cpp)
+file(GLOB SOURCES_PLATE ${PROJECT_SOURCE_DIR}/src/lib/plate/*.cpp)
 
 #Generate library
 add_library(plate SHARED ${SOURCES_PLATE})
@@ -8,5 +8,5 @@ add_library(plate SHARED ${SOURCES_PLATE})
 target_link_libraries(plate PRIVATE ${OpenCV_LIBS})
 
 #Set an installation path, type "sudo make install" to apply
-install(TARGETS plate DESTINATION /user/lib)
+install(TARGETS plate DESTINATION /usr/lib)
 

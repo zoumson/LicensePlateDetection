@@ -38,8 +38,8 @@
 #include "DetectPlates.h"
 #include "ShowLicensePlateArgs.h"
 #include <iostream>
-         
-
+        
+namespace za {
 /* ============================================================================
  * Function Declaration
  * ============================================================================
@@ -57,7 +57,7 @@
  * \see ShowLicensePlateArgs
  * 
  */
-int showLicensePlate(ShowLicensePlateArgs<cv::String, bool> &showLicensePlateArgs);
+int showLicensePlate(za::ShowLicensePlateArgs<cv::String, bool> &showLicensePlateArgs);
 /**
  * \brief Draw rectangle around a plate.
  *
@@ -72,7 +72,7 @@ int showLicensePlate(ShowLicensePlateArgs<cv::String, bool> &showLicensePlateArg
  * \attention licPlate has 4 vertices
  * 
  */
-void drawRedRectangleAroundPlate(cv::Mat &imgOriginalScene, PossiblePlate &licPlate, cv::Scalar color);
+void drawRedRectangleAroundPlate(cv::Mat &imgOriginalScene, za::PossiblePlate &licPlate, cv::Scalar color);
 
 /**
  * \brief Draw rectangle around a plate.
@@ -87,7 +87,7 @@ void drawRedRectangleAroundPlate(cv::Mat &imgOriginalScene, PossiblePlate &licPl
  * \attention licPlate has 4 vertices
  * 
  */
-void writeLicensePlateCharsOnImage(cv::Mat &imgOriginalScene, PossiblePlate &licPlate);
+void writeLicensePlateCharsOnImage(cv::Mat &imgOriginalScene, za::PossiblePlate &licPlate);
 
 /**
  * \brief Identify license plate from an image, show it on the original image.
@@ -103,11 +103,11 @@ void writeLicensePlateCharsOnImage(cv::Mat &imgOriginalScene, PossiblePlate &lic
  * \attention licPlate has 4 vertices
  * 
  */
-void writeLicensePlateCharsOnImage(cv::Mat &imgOriginalScene, PossiblePlate &licPlate);
+void writeLicensePlateCharsOnImage(cv::Mat &imgOriginalScene, za::PossiblePlate &licPlate);
 
 
 
 void getCurrentTime(char *now);
-
+}
 # endif	// IDENTIFY_PLATE_H
 

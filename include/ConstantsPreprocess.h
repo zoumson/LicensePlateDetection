@@ -34,7 +34,7 @@
 #ifndef CONSTANTS_PREPROCESS_H
 #define CONSTANTS_PREPROCESS_H
 #include<opencv2/core/types.hpp>
-
+namespace za {
 /* ============================================================================
  * Global Constants
  * ============================================================================
@@ -43,6 +43,6 @@
 const cv::Size GAUSSIAN_SMOOTH_FILTER_SIZE = cv::Size(5, 5);
 inline constexpr int ADAPTIVE_THRESH_BLOCK_SIZE = 19;
 inline constexpr int ADAPTIVE_THRESH_WEIGHT = 9;
-
+}
 #endif	// CONSTANTS_PREPROCESS_H
 

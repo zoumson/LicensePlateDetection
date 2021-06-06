@@ -36,6 +36,7 @@
 
 #include "ConstantsDetectPlates.h"
 #include "DetectChars.h"
+namespace za {
 
 /* ============================================================================
  * Function Declaration
@@ -55,7 +56,7 @@
  * \attention default SHOW_STEPS is false.
  * 
  */
-std::vector<PossiblePlate> detectPlatesInScene(cv::Mat &imgOriginalScene, bool SHOW_STEPS); 
+std::vector<za::PossiblePlate> detectPlatesInScene(cv::Mat &imgOriginalScene, bool SHOW_STEPS); 
 
 /**
  * \brief Find possible characters in a image.
@@ -70,7 +71,7 @@ std::vector<PossiblePlate> detectPlatesInScene(cv::Mat &imgOriginalScene, bool S
  * \attention default SHOW_STEPS is false.
  * 
  */
-std::vector<PossibleChar> findPossibleCharsInScene(cv::Mat &imgThresh, bool SHOW_STEPS);
+std::vector<za::PossibleChar> findPossibleCharsInScene(cv::Mat &imgThresh, bool SHOW_STEPS);
 
 /**
  * \brief Extract plate from a image.
@@ -85,8 +86,8 @@ std::vector<PossibleChar> findPossibleCharsInScene(cv::Mat &imgThresh, bool SHOW
  * \attention 
  * 
  */
-PossiblePlate extractPlate(cv::Mat &imgOriginal, std::vector<PossibleChar> &vectorOfMatchingChars);
+za::PossiblePlate extractPlate(cv::Mat &imgOriginal, std::vector<za::PossibleChar> &vectorOfMatchingChars);
 
-
+}
 # endif	// DETECT_PLATES_H
 

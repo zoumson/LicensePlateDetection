@@ -37,7 +37,7 @@
 
 #include <string>
 #include<opencv2/imgproc.hpp>
-
+namespace za {
 /**
  * Implementation of a Possible Plate for sorting
  *
@@ -85,6 +85,6 @@ class PossiblePlate
 
 };
 
-
+}
 #endif// POSSIBLE_PLATE_H
 

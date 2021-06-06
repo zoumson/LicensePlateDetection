@@ -41,11 +41,11 @@ int main(int argc, char const *argv[])
     }
 
 
-    ShowLicensePlateArgs<cv::String, bool> showLicensePlateArgs(imagePath, classifierPath, 
+    za::ShowLicensePlateArgs<cv::String, bool> showLicensePlateArgs(imagePath, classifierPath, 
                             trainImagePath,  savePath,saveName,saveExt, 
                             showDetectionSteps, saveImgWithDetectedPlate);
 
-    showLicensePlate(showLicensePlateArgs);
+    za::showLicensePlate(showLicensePlateArgs);
 
     return 0;
 }

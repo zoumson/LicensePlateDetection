@@ -41,7 +41,7 @@
 #include "PossibleChar.h"
 #include "PossiblePlate.h"
 #include "Preprocess.h"
-
+namespace za {
 /* ============================================================================
  * Function Declaration
  * ============================================================================
@@ -76,7 +76,7 @@ bool loadKNNDataAndTrainKNN(cv::String classifierPath,
  * \attention add default values 
  * 
  */
-std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vectorOfPossiblePlates, bool SHOW_STEPS);
+std::vector<za::PossiblePlate> detectCharsInPlates(std::vector<za::PossiblePlate> &vectorOfPossiblePlates, bool SHOW_STEPS);
 
 
 /**
@@ -92,7 +92,7 @@ std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vecto
  * \attention add default values 
  * 
  */
-std::vector<PossibleChar> findPossibleCharsInPlate(cv::Mat &imgGrayscale, cv::Mat &imgThresh);
+std::vector<za::PossibleChar> findPossibleCharsInPlate(cv::Mat &imgGrayscale, cv::Mat &imgThresh);
 
 
 /**
@@ -107,7 +107,7 @@ std::vector<PossibleChar> findPossibleCharsInPlate(cv::Mat &imgGrayscale, cv::Ma
  * \attention add default values 
  * 
  */
-bool checkIfPossibleChar(PossibleChar &possibleChar);
+bool checkIfPossibleChar(za::PossibleChar &possibleChar);
 
 /**
  * \brief find vector of vectors of matching characters.
@@ -121,7 +121,7 @@ bool checkIfPossibleChar(PossibleChar &possibleChar);
  * \attention add default values 
  * 
  */
-std::vector<std::vector<PossibleChar> > findVectorOfVectorsOfMatchingChars(const std::vector<PossibleChar> &vectorOfPossibleChars);
+std::vector<std::vector<za::PossibleChar> > findVectorOfVectorsOfMatchingChars(const std::vector<za::PossibleChar> &vectorOfPossibleChars);
 
 /**
  * \brief Find a group  of matching characters.
@@ -136,7 +136,7 @@ std::vector<std::vector<PossibleChar> > findVectorOfVectorsOfMatchingChars(const
  * \attention 
  * 
  */
-std::vector<PossibleChar> findVectorOfMatchingChars(const PossibleChar &possibleChar, const std::vector<PossibleChar> &vectorOfChars);
+std::vector<za::PossibleChar> findVectorOfMatchingChars(const za::PossibleChar &possibleChar, const std::vector<za::PossibleChar> &vectorOfChars);
 
 /**
  * \brief compute distance between characters.
@@ -151,7 +151,7 @@ std::vector<PossibleChar> findVectorOfMatchingChars(const PossibleChar &possible
  * \attention 
  * 
  */
-double distanceBetweenChars(const PossibleChar &firstChar, const PossibleChar &secondChar);
+double distanceBetweenChars(const za::PossibleChar &firstChar, const za::PossibleChar &secondChar);
 
 /**
  * \brief compute angle between characters.
@@ -166,7 +166,7 @@ double distanceBetweenChars(const PossibleChar &firstChar, const PossibleChar &s
  * \attention 
  * 
  */
-double angleBetweenChars(const PossibleChar &firstChar, const PossibleChar &secondChar);
+double angleBetweenChars(const za::PossibleChar &firstChar, const za::PossibleChar &secondChar);
 
 /**
  * \brief remove inner overlapping characters.
@@ -180,7 +180,7 @@ double angleBetweenChars(const PossibleChar &firstChar, const PossibleChar &seco
  * \attention  
  * 
  */
-std::vector<PossibleChar> removeInnerOverlappingChars(std::vector<PossibleChar> &vectorOfMatchingChars);
+std::vector<za::PossibleChar> removeInnerOverlappingChars(std::vector<za::PossibleChar> &vectorOfMatchingChars);
 
 /**
  * \brief recognize a character in a plate.
@@ -196,8 +196,8 @@ std::vector<PossibleChar> removeInnerOverlappingChars(std::vector<PossibleChar> 
  * \attention 
  * 
  */
-std::string recognizeCharsInPlate(cv::Mat &imgThresh, std::vector<PossibleChar> &vectorOfMatchingChars, bool SHOW_STEPS);
-
+std::string recognizeCharsInPlate(cv::Mat &imgThresh, std::vector<za::PossibleChar> &vectorOfMatchingChars, bool SHOW_STEPS);
+}
 
 #endif	// DETECT_CHARS_H
 

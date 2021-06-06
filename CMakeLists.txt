@@ -31,7 +31,7 @@ find_package(OpenCV 4.5.1 REQUIRED)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 #Bring the source files
-add_subdirectory(${PROJECT_SOURCE_DIR}/src/plate)
+add_subdirectory(${PROJECT_SOURCE_DIR}/src/lib)
 add_subdirectory(${PROJECT_SOURCE_DIR}/src/demo)
 
 

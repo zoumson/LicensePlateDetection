@@ -1,7 +1,7 @@
 // Preprocess.cpp
 
 #include "Preprocess.h"
-
+namespace za {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 void preprocess(cv::Mat &imgOriginal, cv::Mat &imgGrayscale, cv::Mat &imgThresh) 
 {
@@ -20,7 +20,7 @@ void preprocess(cv::Mat &imgOriginal, cv::Mat &imgGrayscale, cv::Mat &imgThresh)
     cv::Mat imgBlurred;
 
     // Gaussian blur
-    cv::GaussianBlur(imgMaxContrastGrayscale, imgBlurred, GAUSSIAN_SMOOTH_FILTER_SIZE, 0);          
+    cv::GaussianBlur(imgMaxContrastGrayscale, imgBlurred, za::GAUSSIAN_SMOOTH_FILTER_SIZE, 0);          
 
     // Call adaptive threshold to get imgThresh, 8 bits transfomed to 1 bit                                                                                         
     cv::adaptiveThreshold(imgBlurred, imgThresh, 255.0, CV_ADAPTIVE_THRESH_GAUSSIAN_C, CV_THRESH_BINARY_INV, ADAPTIVE_THRESH_BLOCK_SIZE, ADAPTIVE_THRESH_WEIGHT);
@@ -93,4 +93,4 @@ cv::Mat maximizeContrast(cv::Mat &imgGrayscale)
     return imgGrayscalePlusTopHatMinusBlackHat;
 }
 
-
+}

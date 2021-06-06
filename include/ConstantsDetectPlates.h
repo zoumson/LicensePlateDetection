@@ -34,6 +34,7 @@
 #ifndef CONSTANTS_DETECT_PLATES_H
 #define CONSTANTS_DETECT_PLATES_H
 
+namespace za {
 
 /* ============================================================================
  * Global Constants
@@ -42,6 +43,6 @@
 // Global or extern constant with unique memory
 inline constexpr double PLATE_WIDTH_PADDING_FACTOR = 1.3;
 inline constexpr double PLATE_HEIGHT_PADDING_FACTOR = 1.5;
-
+}
 # endif	// CONSTANTS_DETECT_PLATES_H
 

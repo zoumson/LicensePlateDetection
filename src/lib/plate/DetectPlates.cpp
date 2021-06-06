@@ -1,14 +1,14 @@
 
 #include "DetectPlates.h"
-
-std::vector<PossiblePlate> detectPlatesInScene(cv::Mat &imgOriginalScene, bool SHOW_STEPS) 
+namespace za {
+std::vector<za::PossiblePlate> detectPlatesInScene(cv::Mat &imgOriginalScene, bool SHOW_STEPS) 
 {
     // Return value
-    std::vector<PossiblePlate> vectorOfPossiblePlates;			
+    std::vector<za::PossiblePlate> vectorOfPossiblePlates;			
 
     cv::Mat imgGrayscaleScene;
     cv::Mat imgThreshScene;
-    cv::Mat imgContours(imgOriginalScene.size(), CV_8UC3, SCALAR_BLACK);
+    cv::Mat imgContours(imgOriginalScene.size(), CV_8UC3, za::SCALAR_BLACK);
 
     cv::RNG rng;
 
@@ -20,7 +20,7 @@ if (SHOW_STEPS)
     cv::imshow("0", imgOriginalScene);
 }
     // Preprocess to get grayscale and threshold images
-    preprocess(imgOriginalScene, imgGrayscaleScene, imgThreshScene);        
+za::preprocess(imgOriginalScene, imgGrayscaleScene, imgThreshScene);        
 
 if(SHOW_STEPS)
 {
@@ -31,7 +31,7 @@ if(SHOW_STEPS)
     // Find all possible chars in the scene
     // This function first finds all contours
     // Then only includes contours that could be chars (without comparison to other chars yet)
-    std::vector<PossibleChar> vectorOfPossibleCharsInScene = 
+    std::vector<za::PossibleChar> vectorOfPossibleCharsInScene = 
                                 findPossibleCharsInScene(imgThreshScene,SHOW_STEPS);
 
 if (SHOW_STEPS)
@@ -40,14 +40,14 @@ if (SHOW_STEPS)
     std::cout << "step 2 - vectorOfPossibleCharsInScene.Count = " 
               << vectorOfPossibleCharsInScene.size() << "\n";       
 
-    imgContours = cv::Mat(imgOriginalScene.size(), CV_8UC3, SCALAR_BLACK);
+    imgContours = cv::Mat(imgOriginalScene.size(), CV_8UC3, za::SCALAR_BLACK);
     std::vector<std::vector<cv::Point> > contours;
 
     for (auto &possibleChar : vectorOfPossibleCharsInScene) 
     {
         contours.push_back(possibleChar.contour);
     }
-    cv::drawContours(imgContours, contours, -1, SCALAR_WHITE);
+    cv::drawContours(imgContours, contours, -1, za::SCALAR_WHITE);
     cv::imshow("2", imgContours);
 
 }
@@ -55,8 +55,8 @@ if (SHOW_STEPS)
     // Find groups of matching chars
     // In the next steps each group of matching chars will attempt 
     // To be recognized as a plate
-    std::vector<std::vector<PossibleChar> > vectorOfVectorsOfMatchingCharsInScene = 
-                findVectorOfVectorsOfMatchingChars(vectorOfPossibleCharsInScene);
+    std::vector<std::vector<za::PossibleChar> > vectorOfVectorsOfMatchingCharsInScene = 
+                za::findVectorOfVectorsOfMatchingChars(vectorOfPossibleCharsInScene);
 
 if (SHOW_STEPS)
 {
@@ -64,7 +64,7 @@ if (SHOW_STEPS)
     std::cout << "step 3 - vectorOfVectorsOfMatchingCharsInScene.size() = " 
               << vectorOfVectorsOfMatchingCharsInScene.size() <<"\n";        
 
-    imgContours = cv::Mat(imgOriginalScene.size(), CV_8UC3, SCALAR_BLACK);
+    imgContours = cv::Mat(imgOriginalScene.size(), CV_8UC3, za::SCALAR_BLACK);
 
     for (auto &vectorOfMatchingChars : vectorOfVectorsOfMatchingCharsInScene) 
     {
@@ -88,7 +88,7 @@ if (SHOW_STEPS)
 
     for (auto &vectorOfMatchingChars : vectorOfVectorsOfMatchingCharsInScene) 
     {   // For each group of matching chars attempt to extract plate
-        PossiblePlate possiblePlate = extractPlate(imgOriginalScene, vectorOfMatchingChars);    
+	    za::PossiblePlate possiblePlate = extractPlate(imgOriginalScene, vectorOfMatchingChars);    
 
         if (possiblePlate.imgPlate.empty() == false) 
         {   // If plate was found
@@ -112,7 +112,7 @@ if (SHOW_STEPS)
 
         for (int j = 0; j < 4; j++) 
         {
-            cv::line(imgContours, p2fRectPoints[j], p2fRectPoints[(j + 1) % 4], SCALAR_RED, 2);
+            cv::line(imgContours, p2fRectPoints[j], p2fRectPoints[(j + 1) % 4], za::SCALAR_RED, 2);
         }
         cv::imshow("4a", imgContours);
 
@@ -131,12 +131,12 @@ if (SHOW_STEPS)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-std::vector<PossibleChar> findPossibleCharsInScene(cv::Mat &imgThresh, bool SHOW_STEPS) 
+std::vector<za::PossibleChar> findPossibleCharsInScene(cv::Mat &imgThresh, bool SHOW_STEPS) 
 {
     // Return value
-    std::vector<PossibleChar> vectorOfPossibleChars;            
+    std::vector<za::PossibleChar> vectorOfPossibleChars;            
 
-    cv::Mat imgContours(imgThresh.size(), CV_8UC3, SCALAR_BLACK);
+    cv::Mat imgContours(imgThresh.size(), CV_8UC3, za::SCALAR_BLACK);
     int intCountOfPossibleChars = 0;
 
     cv::Mat imgThreshCopy = imgThresh.clone();
@@ -150,10 +150,10 @@ std::vector<PossibleChar> findPossibleCharsInScene(cv::Mat &imgThresh, bool SHOW
     {    // for each contour        
         if (SHOW_STEPS)
         {
-            cv::drawContours(imgContours, contours, i, SCALAR_WHITE);
+            cv::drawContours(imgContours, contours, i, za::SCALAR_WHITE);
         }
  
-        PossibleChar possibleChar(contours[i]);
+	za::PossibleChar possibleChar(contours[i]);
 
         // if contour is a possible char, note this does not compare to other chars (yet) . . .
         // increment count of possible chars
@@ -180,11 +180,11 @@ if (SHOW_STEPS)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-PossiblePlate extractPlate(cv::Mat &imgOriginal, std::vector<PossibleChar> &vectorOfMatchingChars) {
-    PossiblePlate possiblePlate;            // this will be the return value
+za::PossiblePlate extractPlate(cv::Mat &imgOriginal, std::vector<za::PossibleChar> &vectorOfMatchingChars) {
+	za::PossiblePlate possiblePlate;            // this will be the return value
 
                                             // sort chars from left to right based on x position
-    std::sort(vectorOfMatchingChars.begin(), vectorOfMatchingChars.end(), PossibleChar::sortCharsLeftToRight);
+    std::sort(vectorOfMatchingChars.begin(), vectorOfMatchingChars.end(), za::PossibleChar::sortCharsLeftToRight);
 
     // calculate the center point of the plate
     double dblPlateCenterX = (double)(vectorOfMatchingChars[0].intCenterX + 
@@ -196,7 +196,7 @@ PossiblePlate extractPlate(cv::Mat &imgOriginal, std::vector<PossibleChar> &vect
     // calculate plate width and height
     int intPlateWidth = (int)((vectorOfMatchingChars[vectorOfMatchingChars.size() - 1].boundingRect.x + 
     vectorOfMatchingChars[vectorOfMatchingChars.size() - 1].boundingRect.width - 
-    vectorOfMatchingChars[0].boundingRect.x) * PLATE_WIDTH_PADDING_FACTOR);
+    vectorOfMatchingChars[0].boundingRect.x) * za::PLATE_WIDTH_PADDING_FACTOR);
 
     double intTotalOfCharHeights = 0;
 
@@ -207,7 +207,7 @@ PossiblePlate extractPlate(cv::Mat &imgOriginal, std::vector<PossibleChar> &vect
 
     double dblAverageCharHeight = (double)intTotalOfCharHeights / vectorOfMatchingChars.size();
 
-    int intPlateHeight = (int)(dblAverageCharHeight * PLATE_HEIGHT_PADDING_FACTOR);
+    int intPlateHeight = (int)(dblAverageCharHeight * za::PLATE_HEIGHT_PADDING_FACTOR);
 
     // calculate correction angle of plate region
     double dblOpposite = vectorOfMatchingChars[vectorOfMatchingChars.size() - 1].intCenterY - 
@@ -242,4 +242,4 @@ PossiblePlate extractPlate(cv::Mat &imgOriginal, std::vector<PossibleChar> &vect
 
     return possiblePlate;
 }
-
+}

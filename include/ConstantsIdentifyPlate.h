@@ -36,7 +36,7 @@
 #define CONSTANTS_IDENTIFY_PLATE
 #include<opencv2/core/types.hpp>
 
-
+namespace za {
 /* ============================================================================
  * Global Constants
  * ============================================================================
@@ -46,7 +46,7 @@ const cv::Scalar SCALAR_WHITE = cv::Scalar(255.0, 255.0, 255.0);
 const cv::Scalar SCALAR_YELLOW = cv::Scalar(0.0, 255.0, 255.0);
 const cv::Scalar SCALAR_GREEN = cv::Scalar(0.0, 255.0, 0.0);
 const cv::Scalar SCALAR_RED = cv::Scalar(0.0, 0.0, 255.0);
-
+}
 
 # endif	// CONSTANTS_IDENTIFY_PLATE
 

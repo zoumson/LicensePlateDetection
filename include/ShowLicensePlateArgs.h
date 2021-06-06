@@ -36,7 +36,7 @@
 
 #ifndef SHOW_LICENSE_PLATE_ARGS_H
 #define SHOW_LICENSE_PLATE_ARGS_H
-
+namespace za {
 
 /**
  * Implementation of a all arguemts used to detect an image.
@@ -226,5 +226,5 @@ auto saveImgWithDetectedPlate() && -> B&&
     
    
 };
-
+}
 #endif  // SHOW_LICENSE_PLATE_ARGS_H

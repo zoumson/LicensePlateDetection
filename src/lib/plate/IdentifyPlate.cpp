@@ -1,6 +1,6 @@
 #include "IdentifyPlate.h"
-
-int showLicensePlate(ShowLicensePlateArgs<cv::String, bool>  &showLicensePlateArgs)
+namespace za {
+int showLicensePlate(za::ShowLicensePlateArgs<cv::String, bool>  &showLicensePlateArgs)
 {
  
     cv::String imagePath = showLicensePlateArgs.imagePath();
@@ -15,7 +15,7 @@ int showLicensePlate(ShowLicensePlateArgs<cv::String, bool>  &showLicensePlateAr
     bool saveImgWithDetectedPlate = showLicensePlateArgs.saveImgWithDetectedPlate();
 
     // attempt KNN training
-    bool blnKNNTrainingSuccessful = loadKNNDataAndTrainKNN(classifierPath,
+    bool blnKNNTrainingSuccessful = za::loadKNNDataAndTrainKNN(classifierPath,
     trainImagePath) ;          
     
     // KNN training fail
@@ -41,13 +41,13 @@ int showLicensePlate(ShowLicensePlateArgs<cv::String, bool>  &showLicensePlateAr
 
     // Array of possible plates
 
-    std::vector<PossiblePlate> vectorOfPossiblePlates;   
+    std::vector<za::PossiblePlate> vectorOfPossiblePlates;   
 
     // Detect plates
-    vectorOfPossiblePlates = detectPlatesInScene(imgOriginalScene, showDetectionSteps);          
+    vectorOfPossiblePlates = za::detectPlatesInScene(imgOriginalScene, showDetectionSteps);          
     
     // Detect characters in plates
-    vectorOfPossiblePlates = detectCharsInPlates(vectorOfPossiblePlates, showDetectionSteps);
+    vectorOfPossiblePlates = za::detectCharsInPlates(vectorOfPossiblePlates, showDetectionSteps);
             
     // Show scene image
     // cv::imshow("imgOriginalScene", imgOriginalScene);           
@@ -64,7 +64,7 @@ int showLicensePlate(ShowLicensePlateArgs<cv::String, bool>  &showLicensePlateAr
         // sort the vector of possible plates in DESCENDING order 
         // (most number of chars to least number of chars)
         std::sort(vectorOfPossiblePlates.begin(), vectorOfPossiblePlates.end(), 
-                    PossiblePlate::sortDescendingByNumberOfChars);
+                   za:: PossiblePlate::sortDescendingByNumberOfChars);
 
         // suppose the plate with the most recognized chars 
         // (the first plate in sorted by string length descending order) is the actual plate
@@ -84,7 +84,7 @@ int showLicensePlate(ShowLicensePlateArgs<cv::String, bool>  &showLicensePlateAr
         cv::Scalar drawRedRectangleAroundPlateColor;
 
         // Set rectanle around plate color
-        drawRedRectangleAroundPlateColor =  SCALAR_RED;
+        drawRedRectangleAroundPlateColor = za::SCALAR_RED;
 
         // Draw rectangle around plate
         drawRedRectangleAroundPlate(imgOriginalScene, licPlate, drawRedRectangleAroundPlateColor);                // draw red rectangle around plate
@@ -123,7 +123,7 @@ int showLicensePlate(ShowLicensePlateArgs<cv::String, bool>  &showLicensePlateAr
 }
 
 
-void drawRedRectangleAroundPlate(cv::Mat &imgOriginalScene, PossiblePlate &licPlate, cv::Scalar color) 
+void drawRedRectangleAroundPlate(cv::Mat &imgOriginalScene, za::PossiblePlate &licPlate, cv::Scalar color) 
 {
     cv::Point2f p2fRectPoints[4];
     // get 4 vertices of rotated rect
@@ -149,7 +149,7 @@ void drawRedRectangleAroundPlate(cv::Mat &imgOriginalScene, PossiblePlate &licPl
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-void writeLicensePlateCharsOnImage(cv::Mat &imgOriginalScene, PossiblePlate &licPlate) 
+void writeLicensePlateCharsOnImage(cv::Mat &imgOriginalScene, za::PossiblePlate &licPlate) 
 {
     // this will be the center of the area the text will be written to
     cv::Point ptCenterOfTextArea;                  
@@ -196,7 +196,7 @@ void writeLicensePlateCharsOnImage(cv::Mat &imgOriginalScene, PossiblePlate &lic
 
      // write the text on the image
     cv::putText(imgOriginalScene, licPlate.strChars, ptLowerLeftTextOrigin, intFontFace, dblFontScale,
-                 SCALAR_YELLOW, intFontThickness);
+                za::SCALAR_YELLOW, intFontThickness);
 }
 
 void getCurrentTime(char *response)
@@ -207,4 +207,5 @@ void getCurrentTime(char *response)
     // Format: Mo, 15.06.2009 20:20:00
     std::strftime(buffer, 32, "%d_%m_%Y_%H_%M_%S", ptm); 
     strcpy(response, buffer);
+}
 }

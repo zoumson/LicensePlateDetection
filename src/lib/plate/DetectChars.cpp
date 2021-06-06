@@ -4,8 +4,9 @@
 ///usr/local/include/opencv4/opencv2/imgproc/types_c.h
 // global variables ///////////////////////////////////////////////////////////////////////////////
 //cv::Ptr<cv::ml::KNearest> kNearest = cv::ml::KNearest::create();
-cv::Ptr<cv::ml::KNearest> kNearest = cv::ml::KNearest::create();
 
+namespace za {
+	cv::Ptr<cv::ml::KNearest> kNearest = cv::ml::KNearest::create();
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 bool loadKNNDataAndTrainKNN(cv::String classifierPath,
 cv::String imageClassifiedPath
@@ -56,7 +57,7 @@ cv::String imageClassifiedPath
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vectorOfPossiblePlates, bool SHOW_STEPS)
+std::vector<za::PossiblePlate> detectCharsInPlates(std::vector<za::PossiblePlate> &vectorOfPossiblePlates, bool SHOW_STEPS)
 {
     int intPlateCounter = 0; // this is only for showing steps
     cv::Mat imgContours;
@@ -72,7 +73,7 @@ std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vecto
     for (auto &possiblePlate : vectorOfPossiblePlates)
     {   // for each possible plate, this is a big for loop that takes up most of the function
         // preprocess to get grayscale and threshold images
-        preprocess(possiblePlate.imgPlate, possiblePlate.imgGrayscale, possiblePlate.imgThresh); 
+	    za::preprocess(possiblePlate.imgPlate, possiblePlate.imgGrayscale, possiblePlate.imgThresh); 
 
     if (SHOW_STEPS)
     {
@@ -96,11 +97,11 @@ std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vecto
         // find all possible chars in the plate,
         // this function first finds all contours, 
         // then only includes contours that could be chars (without comparison to other chars yet)
-        std::vector<PossibleChar> vectorOfPossibleCharsInPlate = findPossibleCharsInPlate(possiblePlate.imgGrayscale, possiblePlate.imgThresh);
+        std::vector<za::PossibleChar> vectorOfPossibleCharsInPlate = findPossibleCharsInPlate(possiblePlate.imgGrayscale, possiblePlate.imgThresh);
 
     if (SHOW_STEPS)
     {
-        imgContours = cv::Mat(possiblePlate.imgThresh.size(), CV_8UC3, SCALAR_BLACK);
+        imgContours = cv::Mat(possiblePlate.imgThresh.size(), CV_8UC3, za::SCALAR_BLACK);
         contours.clear();
 
         for (auto &possibleChar : vectorOfPossibleCharsInPlate)
@@ -108,18 +109,18 @@ std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vecto
             contours.push_back(possibleChar.contour);
         }
 
-        cv::drawContours(imgContours, contours, -1, SCALAR_WHITE);
+        cv::drawContours(imgContours, contours, -1, za::SCALAR_WHITE);
 
         cv::imshow("6", imgContours);
     }
 
         // given a vector of all possible chars, find groups of matching chars within the plate
-        std::vector<std::vector<PossibleChar>> vectorOfVectorsOfMatchingCharsInPlate = 
+        std::vector<std::vector<za::PossibleChar>> vectorOfVectorsOfMatchingCharsInPlate = 
                         findVectorOfVectorsOfMatchingChars(vectorOfPossibleCharsInPlate);
 
     if (SHOW_STEPS)
     {
-        imgContours = cv::Mat(possiblePlate.imgThresh.size(), CV_8UC3, SCALAR_BLACK);
+        imgContours = cv::Mat(possiblePlate.imgThresh.size(), CV_8UC3, za::SCALAR_BLACK);
 
         contours.clear();
 
@@ -160,13 +161,13 @@ std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vecto
         {                              
             // sort the chars left to right                                                                                // for each vector of matching chars in the current plate
             std::sort(vectorOfMatchingChars.begin(), vectorOfMatchingChars.end(), 
-                            PossibleChar::sortCharsLeftToRight); 
+                            za::PossibleChar::sortCharsLeftToRight); 
             vectorOfMatchingChars = removeInnerOverlappingChars(vectorOfMatchingChars);                                // and eliminate any overlapping chars
         }
 
     if (SHOW_STEPS)
     {
-        imgContours = cv::Mat(possiblePlate.imgThresh.size(), CV_8UC3, SCALAR_BLACK);
+        imgContours = cv::Mat(possiblePlate.imgThresh.size(), CV_8UC3, za::SCALAR_BLACK);
 
         for (auto &vectorOfMatchingChars : vectorOfVectorsOfMatchingCharsInPlate)
         {
@@ -201,12 +202,12 @@ std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vecto
         }
         // suppose that the longest vector of matching chars within 
         // the plate is the actual vector of chars
-        std::vector<PossibleChar> longestVectorOfMatchingCharsInPlate = 
+        std::vector<za::PossibleChar> longestVectorOfMatchingCharsInPlate = 
                         vectorOfVectorsOfMatchingCharsInPlate[intIndexOfLongestVectorOfChars];
 
     if (SHOW_STEPS)
     {
-        imgContours = cv::Mat(possiblePlate.imgThresh.size(), CV_8UC3, SCALAR_BLACK);
+        imgContours = cv::Mat(possiblePlate.imgThresh.size(), CV_8UC3, za::SCALAR_BLACK);
 
         contours.clear();
 
@@ -214,7 +215,7 @@ std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vecto
         {
             contours.push_back(matchingChar.contour);
         }
-        cv::drawContours(imgContours, contours, -1, SCALAR_WHITE);
+        cv::drawContours(imgContours, contours, -1, za::SCALAR_WHITE);
 
         cv::imshow("9", imgContours);
     }
@@ -244,10 +245,10 @@ std::vector<PossiblePlate> detectCharsInPlates(std::vector<PossiblePlate> &vecto
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-std::vector<PossibleChar> findPossibleCharsInPlate(cv::Mat &imgGrayscale, cv::Mat &imgThresh)
+std::vector<za::PossibleChar> findPossibleCharsInPlate(cv::Mat &imgGrayscale, cv::Mat &imgThresh)
 {
     // this will be the return value
-    std::vector<PossibleChar> vectorOfPossibleChars; 
+    std::vector<za::PossibleChar> vectorOfPossibleChars; 
 
     cv::Mat imgThreshCopy;
 
@@ -261,7 +262,7 @@ std::vector<PossibleChar> findPossibleCharsInPlate(cv::Mat &imgGrayscale, cv::Ma
 
     for (auto &contour : contours)
     { // for each contour
-        PossibleChar possibleChar(contour);
+	    za::PossibleChar possibleChar(contour);
 
         if (checkIfPossibleChar(possibleChar))
         {   
@@ -275,16 +276,16 @@ std::vector<PossibleChar> findPossibleCharsInPlate(cv::Mat &imgGrayscale, cv::Ma
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-bool checkIfPossibleChar(PossibleChar &possibleChar)
+bool checkIfPossibleChar(za::PossibleChar &possibleChar)
 {
     // this function is a 'first pass' that does a rough check 
     // on a contour to see if it could be a char,
     // note that we are not (yet) comparing the char to other chars to look for a group
-    if (possibleChar.boundingRect.area() > MIN_PIXEL_AREA &&
-        possibleChar.boundingRect.width > MIN_PIXEL_WIDTH && 
-        possibleChar.boundingRect.height > MIN_PIXEL_HEIGHT &&
-        MIN_ASPECT_RATIO < possibleChar.dblAspectRatio && 
-        possibleChar.dblAspectRatio < MAX_ASPECT_RATIO)
+    if (possibleChar.boundingRect.area() > za::MIN_PIXEL_AREA &&
+        possibleChar.boundingRect.width > za::MIN_PIXEL_WIDTH && 
+        possibleChar.boundingRect.height > za::MIN_PIXEL_HEIGHT &&
+        za::MIN_ASPECT_RATIO < possibleChar.dblAspectRatio && 
+        possibleChar.dblAspectRatio < za::MAX_ASPECT_RATIO)
     {
         return true;
     }
@@ -295,7 +296,7 @@ bool checkIfPossibleChar(PossibleChar &possibleChar)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-std::vector<std::vector<PossibleChar>> findVectorOfVectorsOfMatchingChars(const std::vector<PossibleChar> &vectorOfPossibleChars)
+std::vector<std::vector<za::PossibleChar>> findVectorOfVectorsOfMatchingChars(const std::vector<za::PossibleChar> &vectorOfPossibleChars)
 {
     // with this function, we start off with all the possible chars in one big vector
     // the purpose of this function is to re-arrange the one big vector of chars into a 
@@ -303,19 +304,19 @@ std::vector<std::vector<PossibleChar>> findVectorOfVectorsOfMatchingChars(const 
     // note that chars that are not found to be in a group of matches do not need to be 
     //considered further
     //Return value
-    std::vector<std::vector<PossibleChar>> vectorOfVectorsOfMatchingChars;
+    std::vector<std::vector<za::PossibleChar>> vectorOfVectorsOfMatchingChars;
     for (auto &possibleChar : vectorOfPossibleChars)
     { // for each possible char in the one big vector of chars
 
         // find all chars in the big vector that match the current char
-        std::vector<PossibleChar> vectorOfMatchingChars = findVectorOfMatchingChars(possibleChar, 
+        std::vector<za::PossibleChar> vectorOfMatchingChars = findVectorOfMatchingChars(possibleChar, 
                                                                     vectorOfPossibleChars);
 
         // also add the current char to current possible vector of matching chars
         vectorOfMatchingChars.push_back(possibleChar); 
         
         // if current possible vector of matching chars is not long enough to constitute a possible plate
-        if (vectorOfMatchingChars.size() < MIN_NUMBER_OF_MATCHING_CHARS)
+        if (vectorOfMatchingChars.size() < za::MIN_NUMBER_OF_MATCHING_CHARS)
         {
             // jump back to the top of the for loop and try again with next char, 
             // note that it's not necessary to save the vector in any way 
@@ -329,7 +330,7 @@ std::vector<std::vector<PossibleChar>> findVectorOfVectorsOfMatchingChars(const 
         // so we don't use those same chars twice,
         // make sure to make a new big vector for this since 
         // we don't want to change the original big vector
-        std::vector<PossibleChar> vectorOfPossibleCharsWithCurrentMatchesRemoved;
+        std::vector<za::PossibleChar> vectorOfPossibleCharsWithCurrentMatchesRemoved;
 
         for (auto &possChar : vectorOfPossibleChars)
         {
@@ -339,7 +340,7 @@ std::vector<std::vector<PossibleChar>> findVectorOfVectorsOfMatchingChars(const 
             }
         }
         // declare new vector of vectors of chars to get result from recursive call
-        std::vector<std::vector<PossibleChar>> recursiveVectorOfVectorsOfMatchingChars;
+        std::vector<std::vector<za::PossibleChar>> recursiveVectorOfVectorsOfMatchingChars;
 
         // recursive call
         recursiveVectorOfVectorsOfMatchingChars = findVectorOfVectorsOfMatchingChars(vectorOfPossibleCharsWithCurrentMatchesRemoved); // recursive call !!
@@ -358,14 +359,14 @@ std::vector<std::vector<PossibleChar>> findVectorOfVectorsOfMatchingChars(const 
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-std::vector<PossibleChar> findVectorOfMatchingChars(const PossibleChar &possibleChar, 
-                                    const std::vector<PossibleChar> &vectorOfChars)
+std::vector<za::PossibleChar> findVectorOfMatchingChars(const za::PossibleChar &possibleChar, 
+                                    const std::vector<za::PossibleChar> &vectorOfChars)
 {
     // the purpose of this function is, given a possible char and a big vector of possible chars,
     // find all chars in the big vector that are a match for the single possible char, 
     //and return those matching chars as a vector
     // this will be the return value
-    std::vector<PossibleChar> vectorOfMatchingChars; 
+    std::vector<za::PossibleChar> vectorOfMatchingChars; 
 
     for (auto &possibleMatchingChar : vectorOfChars)
     { // for each char in big vector
@@ -390,11 +391,11 @@ std::vector<PossibleChar> findVectorOfMatchingChars(const PossibleChar &possible
                             possibleChar.boundingRect.height) / (double)possibleChar.boundingRect.height;
 
         // check if chars match
-        if (dblDistanceBetweenChars < (possibleChar.dblDiagonalSize * MAX_DIAG_SIZE_MULTIPLE_AWAY) &&
-            dblAngleBetweenChars < MAX_ANGLE_BETWEEN_CHARS &&
-            dblChangeInArea < MAX_CHANGE_IN_AREA &&
-            dblChangeInWidth < MAX_CHANGE_IN_WIDTH &&
-            dblChangeInHeight < MAX_CHANGE_IN_HEIGHT)
+        if (dblDistanceBetweenChars < (possibleChar.dblDiagonalSize * za::MAX_DIAG_SIZE_MULTIPLE_AWAY) &&
+            dblAngleBetweenChars < za::MAX_ANGLE_BETWEEN_CHARS &&
+            dblChangeInArea < za::MAX_CHANGE_IN_AREA &&
+            dblChangeInWidth < za::MAX_CHANGE_IN_WIDTH &&
+            dblChangeInHeight < za::MAX_CHANGE_IN_HEIGHT)
         {
             // if the chars are a match, add the current char to vector of matching chars
             vectorOfMatchingChars.push_back(possibleMatchingChar); 
@@ -406,7 +407,7 @@ std::vector<PossibleChar> findVectorOfMatchingChars(const PossibleChar &possible
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // use Pythagorean theorem to calculate distance between two chars
-double distanceBetweenChars(const PossibleChar &firstChar, const PossibleChar &secondChar)
+double distanceBetweenChars(const za::PossibleChar &firstChar, const za::PossibleChar &secondChar)
 {
     int intX = abs(firstChar.intCenterX - secondChar.intCenterX);
     int intY = abs(firstChar.intCenterY - secondChar.intCenterY);
@@ -416,7 +417,7 @@ double distanceBetweenChars(const PossibleChar &firstChar, const PossibleChar &s
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // use basic trigonometry(SOH CAH TOA) to calculate angle between chars
-double angleBetweenChars(const PossibleChar &firstChar, const PossibleChar &secondChar)
+double angleBetweenChars(const za::PossibleChar &firstChar, const za::PossibleChar &secondChar)
 {
     double dblAdj = abs(firstChar.intCenterX - secondChar.intCenterX);
     double dblOpp = abs(firstChar.intCenterY - secondChar.intCenterY);
@@ -434,9 +435,9 @@ double angleBetweenChars(const PossibleChar &firstChar, const PossibleChar &seco
 // this is to prevent including the same char twice if two contours are found for the same char,
 // for example for the letter 'O' both the inner ring and the outer ring may be found as contours, 
 // but we should only include the char once
-std::vector<PossibleChar> removeInnerOverlappingChars(std::vector<PossibleChar> &vectorOfMatchingChars)
+std::vector<za::PossibleChar> removeInnerOverlappingChars(std::vector<za::PossibleChar> &vectorOfMatchingChars)
 {
-    std::vector<PossibleChar> vectorOfMatchingCharsWithInnerCharRemoved(vectorOfMatchingChars);
+    std::vector<za::PossibleChar> vectorOfMatchingCharsWithInnerCharRemoved(vectorOfMatchingChars);
 
     for (auto &currentChar : vectorOfMatchingChars)
     {
@@ -446,7 +447,7 @@ std::vector<PossibleChar> removeInnerOverlappingChars(std::vector<PossibleChar> 
             {   // if current char and other char are not the same char . . .
                 // if current char and other char have center points at almost the same location . . .
                 if (distanceBetweenChars(currentChar, otherChar) < 
-                (currentChar.dblDiagonalSize * MIN_DIAG_SIZE_MULTIPLE_AWAY))
+                (currentChar.dblDiagonalSize * za::MIN_DIAG_SIZE_MULTIPLE_AWAY))
                 {
                     // if we get in here we have found overlapping chars
                     // next we identify which char is smaller, then if 
@@ -456,7 +457,7 @@ std::vector<PossibleChar> removeInnerOverlappingChars(std::vector<PossibleChar> 
                     if (currentChar.boundingRect.area() < otherChar.boundingRect.area())
                     {
                         // look for char in vector with an iterator
-                        std::vector<PossibleChar>::iterator currentCharIterator = 
+                        std::vector<za::PossibleChar>::iterator currentCharIterator = 
                         std::find(vectorOfMatchingCharsWithInnerCharRemoved.begin(), 
                         vectorOfMatchingCharsWithInnerCharRemoved.end(), currentChar);
                         
@@ -470,7 +471,7 @@ std::vector<PossibleChar> removeInnerOverlappingChars(std::vector<PossibleChar> 
                     else
                     {   // else if other char is smaller than current char
                         // look for char in vector with an iterator
-                        std::vector<PossibleChar>::iterator otherCharIterator = std::find(vectorOfMatchingCharsWithInnerCharRemoved.begin(), vectorOfMatchingCharsWithInnerCharRemoved.end(), otherChar);
+                        std::vector<za::PossibleChar>::iterator otherCharIterator = std::find(vectorOfMatchingCharsWithInnerCharRemoved.begin(), vectorOfMatchingCharsWithInnerCharRemoved.end(), otherChar);
                         // if iterator did not get to end, then the char was found in the vector
                         if (otherCharIterator != vectorOfMatchingCharsWithInnerCharRemoved.end())
                         {
@@ -488,7 +489,7 @@ std::vector<PossibleChar> removeInnerOverlappingChars(std::vector<PossibleChar> 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // this is where we apply the actual char recognition
-std::string recognizeCharsInPlate(cv::Mat &imgThresh, std::vector<PossibleChar> &vectorOfMatchingChars, 
+std::string recognizeCharsInPlate(cv::Mat &imgThresh, std::vector<za::PossibleChar> &vectorOfMatchingChars, 
                                                                 bool SHOW_STEPS)
 {
     // this will be the return value, the chars in the lic plate
@@ -497,7 +498,7 @@ std::string recognizeCharsInPlate(cv::Mat &imgThresh, std::vector<PossibleChar> 
 
     // sort chars from left to right
     std::sort(vectorOfMatchingChars.begin(), vectorOfMatchingChars.end(), 
-                                    PossibleChar::sortCharsLeftToRight);
+                                    za::PossibleChar::sortCharsLeftToRight);
 
     // make color version of threshold image so we can draw contours in color on it
     cv::cvtColor(imgThresh, imgThreshColor, CV_GRAY2BGR); 
@@ -506,7 +507,7 @@ std::string recognizeCharsInPlate(cv::Mat &imgThresh, std::vector<PossibleChar> 
     {   
         // for each char in plate
         // draw green box around the char
-        cv::rectangle(imgThreshColor, currentChar.boundingRect, SCALAR_GREEN, 2); 
+        cv::rectangle(imgThreshColor, currentChar.boundingRect, za::SCALAR_GREEN, 2); 
 
         // get ROI image of bounding rect
         cv::Mat imgROItoBeCloned = imgThresh(currentChar.boundingRect); 
@@ -516,7 +517,7 @@ std::string recognizeCharsInPlate(cv::Mat &imgThresh, std::vector<PossibleChar> 
 
         cv::Mat imgROIResized;
         // resize image, this is necessary for char recognition
-        cv::resize(imgROI, imgROIResized, cv::Size(RESIZED_CHAR_IMAGE_WIDTH, RESIZED_CHAR_IMAGE_HEIGHT));
+        cv::resize(imgROI, imgROIResized, cv::Size(za::RESIZED_CHAR_IMAGE_WIDTH, za::RESIZED_CHAR_IMAGE_HEIGHT));
 
         cv::Mat matROIFloat;
 
@@ -546,4 +547,5 @@ std::string recognizeCharsInPlate(cv::Mat &imgThresh, std::vector<PossibleChar> 
 
     // return result
     return strChars; 
+}
 }

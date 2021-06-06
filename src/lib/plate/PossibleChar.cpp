@@ -1,7 +1,7 @@
 // PossibleChar.cpp
-
 #include "PossibleChar.h"
 
+namespace za {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 PossibleChar::PossibleChar(std::vector<cv::Point> _contour) 
 {
@@ -34,4 +34,5 @@ bool PossibleChar::operator == (const PossibleChar& otherPossibleChar) const
 bool PossibleChar::operator != (const PossibleChar& otherPossibleChar) const 
 {
     return (this->contour != otherPossibleChar.contour); 
+}
 }

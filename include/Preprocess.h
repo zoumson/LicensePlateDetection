@@ -40,7 +40,7 @@
 #include<opencv2/imgproc.hpp>
 #include <opencv2/imgproc/types_c.h>
 #include "ConstantsPreprocess.h"
-
+namespace za {
 /* ============================================================================
  * Function Declaration
  * ============================================================================
@@ -103,7 +103,7 @@ cv::Mat extractImgGrayscale(cv::Mat &imgOriginal);
  * 
  */
 cv::Mat maximizeContrast(cv::Mat &imgGrayscale);
-
+}
 
 #endif	// PREPROCESS_H
 

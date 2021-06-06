@@ -36,7 +36,7 @@
 #ifndef CONSTANTS_DETECT_CHARS_H
 #define CONSTANTS_DETECT_CHARS_H
 #include <opencv2/ml.hpp>
-
+namespace za {
 /* ============================================================================
  * Global Constants
  * ============================================================================
@@ -72,6 +72,6 @@ inline constexpr int RESIZED_CHAR_IMAGE_HEIGHT = 30;
 inline constexpr int MIN_CONTOUR_AREA = 100;
 
 extern cv::Ptr<cv::ml::KNearest>  kNearest;
-
+}
 #endif	// CONSTANTS_DETECT_CHARS_H
 
