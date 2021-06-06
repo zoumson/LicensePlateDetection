@@ -250,7 +250,10 @@ Usage: plate [params]
 <br>
 
 ## License plate number `NYSJ`
-
+3. Back to the initial file structure configuration
+   ```sh
+   rm -r bin build lib result 
+   ```
 <!-- ROADMAP -->
 ## Roadmap
 
