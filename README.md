@@ -190,11 +190,11 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    mkdir build && mkdir lib && mkdir bin && mkdir result && cd result && mkdir image && cd ..
    ```
-5. Generate the library `plate` and move it to `lib` and the exectutable `demo` and move it to `bin`
+5. Generate the library `libplate.so` and move it to `lib` and the exectutable `demo` and move it to `bin`
    ```sh
    cd build && cmake .. && make && cd ..
    ```
-6. Install the library `plate` to `/usr/lib` 
+6. Install the library `libplate.so` to `/usr/lib` 
    ```sh
    cd build && sudo make install && cd ..
    ```   
