@@ -90,7 +90,6 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 * [include/](include/): c++ header files.
 * [resource/](resource/): xml and input images.
-* [result/](result/): Storing image with detected plate.
 * [src/](src/): c++ definitions.
 
 
@@ -137,19 +136,19 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 │   └── xml
 │       ├── classifications.xml
 │       └── images.xml
-├── result
 └── src
     ├── demo
     │   ├── CMakeLists.txt
     │   └── Demo.cpp
-    └── plate
+    └── lib
         ├── CMakeLists.txt
-        ├── DetectChars.cpp
-        ├── DetectPlates.cpp
-        ├── IdentifyPlate.cpp
-        ├── PossibleChar.cpp
-        ├── PossiblePlate.cpp
-        └── Preprocess.cpp
+        └── plate
+            ├── DetectChars.cpp
+            ├── DetectPlates.cpp
+            ├── IdentifyPlate.cpp
+            ├── PossibleChar.cpp
+            ├── PossiblePlate.cpp
+            └── Preprocess.cpp
 
 8 directories, 43 files
 
@@ -189,15 +188,15 @@ This is an example of how to list things you need to use the software and how to
    ```
 4. Create empty directories `build`, `lib` and `bin`
    ```sh
-   mkdir build && mkdir lib && mkdir bin
+   mkdir build && mkdir lib && mkdir bin && mkdir result && cd result && mkdir image && cd ..
    ```
 5. Generate the library `plate` and move it to `lib` and the exectutable `demo` and move it to `bin`
    ```sh
-   cd build && cmake .. && make && cd
+   cd build && cmake .. && make && cd ..
    ```
 6. Install the library `plate` to `/usr/lib` 
    ```sh
-   cd build && sudo make install && cd
+   cd build && sudo make install && cd ..
    ```   
 <!-- USAGE EXAMPLES -->
 ### Usage
