@@ -205,26 +205,26 @@ This is an example of how to list things you need to use the software and how to
 
 ```
 Car license plate detection
-Usage: plate [params] 
+Usage: demo [params] 
 
-	-?, -h, --help, --usage (value:true)
-		show help message
-	-c, --classifier (value:../ressource/xml/classifications.xml)
-		input classifier path
-	--ext, -n (value:png)
-		save image detected with detected plate extension
-	-i, --image (value:<none>)
-		input image path
-	--name, -p (value:image)
-		save image detected with detected plate name
-	-p, --path (value:../result/image/)
-		save image detected with detected plate path
-	-s, --show (value:false)
-		show detection steps
-	--save, -v (value:false)
-		save image with detected plate
-	-t, --train (value:../ressource/xml/images.xml)
-		input trained images path
+        -?, -h, --help, --usage (value:true)
+                show help message
+        -c, --classifier (value:./ressource/xml/classifications.xml)
+                input classifier path
+        --ext, -n (value:png)
+                save image detected with detected plate extension
+        -i, --image (value:<none>)
+                input image path
+        --name, -p (value:image)
+                save image detected with detected plate name
+        -p, --path (value:./result/image/)
+                save image detected with detected plate path
+        -s, --show (value:false)
+                show detection steps
+        --save, -v (value:false)
+                save image with detected plate
+        -t, --train (value:./ressource/xml/images.xml)
+                input trained images path
 
 ```
 
