@@ -186,7 +186,7 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    cd LicensePlateDetection
    ```
-4. Create empty directories `build`, `lib` and `bin`
+4. Create empty directories `build`, `lib`, `result` and `bin`
    ```sh
    mkdir build && mkdir lib && mkdir bin && mkdir result && cd result && mkdir image && cd ..
    ```
